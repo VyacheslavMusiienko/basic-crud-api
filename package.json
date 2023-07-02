@@ -4,7 +4,9 @@
   "description": "",
   "main": "./src/index.js",
   "scripts": {
-    "start:dev": "nodemon"
+    "start:dev": "cross-env NODE_ENV=development NODE_NO_WARNINGS=1 nodemon",
+    "start:prod": "cross-env NODE_ENV=production npm run build && node ./dist/bundle.js",
+    "build": "webpack"
   },
   "keywords": [],
   "author": "",
@@ -15,9 +17,12 @@
   },
   "devDependencies": {
     "@types/node": "^20.3.2",
+    "cross-env": "^7.0.3",
     "dotenv": "^16.3.1",
     "nodemon": "^2.0.22",
+    "ts-loader": "^9.4.4",
     "ts-node": "^10.9.1",
-    "uuid": "^9.0.0"
+    "uuid": "^9.0.0",
+    "webpack-cli": "^5.1.4"
   }
 }
